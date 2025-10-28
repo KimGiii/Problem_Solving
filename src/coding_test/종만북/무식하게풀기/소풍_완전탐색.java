@@ -1,6 +1,6 @@
-package coding_test.종만북;
+package coding_test.종만북.무식하게풀기;
 
-public class 소풍_bruteforce {
+public class 소풍_완전탐색 {
     public static int n;
     private static boolean[][] areFriends;
 

@@ -1,4 +1,4 @@
-package coding_test.종만북;
+package coding_test.종만북.무식하게풀기;
 
 public class 게임판덮기_완전탐색 {
     public static int[][][] coverType = new int[][][] {

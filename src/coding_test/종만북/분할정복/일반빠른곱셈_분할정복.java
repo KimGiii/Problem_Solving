@@ -1,4 +1,4 @@
-package coding_test.종만북;
+package coding_test.종만북.분할정복;
 
 import java.util.ArrayList;
 

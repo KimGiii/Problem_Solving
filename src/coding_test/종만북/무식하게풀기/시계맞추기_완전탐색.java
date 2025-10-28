@@ -1,6 +1,4 @@
-package coding_test.종만북;
-
-import java.util.List;
+package coding_test.종만북.무식하게풀기;
 
 public class 시계맞추기_완전탐색 {
     static int MAX = Integer.MAX_VALUE;

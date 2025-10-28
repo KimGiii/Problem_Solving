@@ -1,4 +1,4 @@
-package coding_test.종만북;
+package coding_test.종만북.무식하게풀기;
 
 import java.util.ArrayList;
 import java.util.List;
