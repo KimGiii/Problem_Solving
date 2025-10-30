@@ -29,7 +29,7 @@ public class 카라츠바빠른곱셈_분할정복 {
         }
     }
 
-    static ArrayList<Integer> karatsuba(ArrayList<Integer> a, ArrayList<Integer> b) {
+    public ArrayList<Integer> karatsuba(ArrayList<Integer> a, ArrayList<Integer> b) {
         int a_size = a.size(), b_size = b.size();
 
         // a가 b보다 짧을 경우 둘을 바꾼다.
