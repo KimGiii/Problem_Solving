@@ -67,4 +67,32 @@ public class 와일드카드_dp {
         cache[w][s] = 0;
         return false;
     }
+
+    private boolean matchOptimized(int w, int s) {
+        if (cache[w][s] != -1) {
+            return cache[w][s] == 1;
+        }
+
+        // 패턴과 문자열의 첫 한 글자씩을 떼고 서로 대응되는지를 재귀호출로 확인한다.
+        if (w < W.length() && s < S.length() && (W.charAt(w) == '?' || W.charAt(w) == S.charAt(s))) {
+            cache[w][s] = matchOptimized(w+1, s + 1) ? 1 : 0;
+            return cache[w][s] == 1;
+        }
+
+        if (w == W.length()) {
+            cache[w][s] = (s == S.length()) ? 1 : 0;
+            return cache[w][s] == 1;
+        }
+
+        // 매 단계에서 *에 아무 글자도 대응시키지 않을 것인지, 한 글자를 더 대응시킬 것인지를 결정한다.
+        if (W.charAt(w) == '*') {
+            if (matchOptimized(w+1, s) || (s < S.length() && matchOptimized(w, s+1))) {
+                cache[w][s] = 1;
+                return true;
+            }
+        }
+
+        cache[w][s] = 0;
+        return false;
+    }
 }
