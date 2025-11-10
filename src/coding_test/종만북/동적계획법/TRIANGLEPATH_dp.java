@@ -20,4 +20,20 @@ public class TRIANGLEPATH_dp {
         sum +=  triangle[y][x];
         return ret = Math.max(path1(y+1, x+1, sum), path1(y+1, x, sum + triangle[y][x]));
     }
+
+    private int[][] cache2;
+
+    private int path2(int y, int x) {
+        if (y == n - 1) {
+            return triangle[y][x];
+        }
+
+        // 메모이제이션
+        int ret = cache2[y][x];
+        if (ret != -1) {
+            return ret;
+        }
+
+        return ret = Math.max(path2(y+1, x), path2(y+1, x+1)) +  triangle[y][x];
+    }
 }
