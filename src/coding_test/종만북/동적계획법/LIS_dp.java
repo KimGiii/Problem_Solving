@@ -54,4 +54,22 @@ public class LIS_dp {
         cache[start] = ret;
         return ret;
     }
+
+    // 전체 시간 복잡도  O(n^2)의 최대 부분 증가 수열을 찾는 알고리즘
+    private int lis3(int start) {
+        int ret = cache[start+1];
+        if (ret != -1) {
+            return ret;
+        }
+
+        ret = 1;
+        for (int next = start + 1; next < n; next++) {
+            if (start == -1 || S[start] < S[next]) {
+                ret = Math.max(ret, lis3(next) + 1);
+            }
+        }
+
+        cache[start+1] = ret;
+        return ret;
+    }
 }
