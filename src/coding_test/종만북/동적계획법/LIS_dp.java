@@ -72,4 +72,26 @@ public class LIS_dp {
         cache[start+1] = ret;
         return ret;
     }
+
+    // 전체 시간 복잡도 O(nlogn)의 최대 부분 증가 수열을 찾는 알고리즘
+    private int lis4(int[] S) {
+        int n = S.length;
+        if (n == 0) return 0;
+
+        int[] C = new int[n];
+        int ret = 0;
+
+        for (int x : S) {
+            // lower_bound : C에서 x의 첫 삽입 위치
+            int pos = Arrays.binarySearch(C, 0, ret, x);
+            if (pos < 0) {
+                pos = -pos - 1;
+            }
+
+            C[pos] = x;
+            if (pos == ret) ret++;
+        }
+
+        return ret;
+    }
 }
