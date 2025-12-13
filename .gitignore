@@ -5,6 +5,7 @@ out/
 !**/src/test/**/out/
 *.iml
 *.md
+!gemini.md
 
 ### Kotlin ###
 .kotlin

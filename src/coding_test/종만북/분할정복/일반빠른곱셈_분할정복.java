@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class 일반빠른곱셈_분할정복 {
     static void normalize(ArrayList<Integer> num) {
-        num.addLast(0);
+        //num.addLast(0);
 
         // 자릿수 올림 처리
         for (int i = 0; i < num.size() - 1; i++) {
@@ -19,7 +19,7 @@ public class 일반빠른곱셈_분할정복 {
         }
 
         while (num.size() > 1 && num.get(num.size() - 1) == 0) {
-            num.removeLast();
+           // num.removeLast();
         }
     }
 

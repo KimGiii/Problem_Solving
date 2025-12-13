@@ -15,20 +15,20 @@ public class 외판원문제_재귀호출 {
     private double shortestPath(List<Integer> path, boolean[] visited, double currentLength) {
         // 기저 사례 : 모든 도시를 다 방문했을 때, 시작 도시로 돌아가고 종료
         if (path.size() == n) {
-            return currentLength + dist[path.getFirst()][path.getLast()];
+            // return currentLength + dist[path.getFirst()][path.getLast()];
         }
 
         double ret = INF;
-        int here = path.getLast();
+        // int here = path.getLast();
         // 다음 방문할 도시를 전부 시도
         for (int next = 0; next < n; next++) {
             if (visited[next]) continue;
             visited[next] = true;
             path.add(next);
             // 나머지 경로를 재귀 호출을 통해 완성, 가장 짧은 경로의 길이 얻는다.
-            double candidate = shortestPath(path, visited, currentLength + dist[here][next]);
-            ret = Math.min(ret, candidate);
-            path.removeLast();
+            // double candidate = shortestPath(path, visited, currentLength + dist[here][next]);
+            // ret = Math.min(ret, candidate);
+            // path.removeLast();
             visited[next] = false;
         }
         return ret;
