@@ -3,6 +3,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+*.iml
+*.md
 
 ### Kotlin ###
 .kotlin
