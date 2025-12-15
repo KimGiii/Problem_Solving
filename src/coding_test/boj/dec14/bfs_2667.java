@@ -3,15 +3,14 @@ package coding_test.boj.dec14;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
+import java.util.logging.Logger;
 
-public class BOJ_2667_BFS {
+import static java.lang.Integer.parseInt;
 
-    static int N;
+public class bfs_2667 {
+
+    static int n;
     static int[][] map;
     static boolean[][] visited;
     static int[] dx = {0, 0, 1, -1};
@@ -19,14 +18,14 @@ public class BOJ_2667_BFS {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine());
+        n = parseInt(br.readLine());
 
-        map = new int[N][N];
-        visited = new boolean[N][N];
+        map = new int[n][n];
+        visited = new boolean[n][n];
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             String line = br.readLine();
-            for (int j = 0; j < N; j++) {
+            for (int j = 0; j < n; j++) {
                 map[i][j] = line.charAt(j) - '0';
             }
         }
@@ -34,8 +33,8 @@ public class BOJ_2667_BFS {
         List<Integer> complexSizes = new ArrayList<>();
         int totalComplexes = 0;
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 if (map[i][j] == 1 && !visited[i][j]) {
                     totalComplexes++;
                     complexSizes.add(bfs(i, j));
@@ -66,7 +65,7 @@ public class BOJ_2667_BFS {
                 int nx = currentX + dx[i];
                 int ny = currentY + dy[i];
 
-                if (nx >= 0 && ny >= 0 && nx < N && ny < N && map[nx][ny] == 1 && !visited[nx][ny]) {
+                if (nx >= 0 && ny >= 0 && nx < n && ny < n && map[nx][ny] == 1 && !visited[nx][ny]) {
                     visited[nx][ny] = true;
                     queue.offer(new int[]{nx, ny});
                     count++;

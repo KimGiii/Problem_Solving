@@ -8,7 +8,7 @@ import java.util.List;
 
 import static java.util.Collections.sort;
 
-public class BOJ_2667_DFS {
+public class dfs_2667 {
 
     static int N;
     static int[][] map;
