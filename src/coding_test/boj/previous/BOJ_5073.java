@@ -1,4 +1,4 @@
-package coding_test.boj.Oct01;
+package coding_test.boj.previous;
 
 import java.io.IOException;
 
