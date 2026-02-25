@@ -15,32 +15,32 @@ public class Topo_2252 {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        List<Integer>[] adj = new ArrayList[N];
-        int[] indegree = new int[N];
-        for (int i = 0; i < adj.length; i++) adj[i] = new ArrayList<>();
+        // 1-based indexing을 위해 크기를 N+1로 설정
+        List<Integer>[] adj = new ArrayList[N + 1];
+        int[] indegree = new int[N + 1];
+        for (int i = 1; i <= N; i++) adj[i] = new ArrayList<>();
 
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            adj[a-1].add(b-1);
-            indegree[b-1]++;
+            adj[a].add(b);
+            indegree[b]++;
         }
 
         solveByIndegree(adj, indegree);
-
     }
 
     private static void solveByIndegree(List<Integer>[] adj, int[] indegree) {
-        Queue<Integer> queue = new LinkedList<>();
+        // LinkedList 대신 ArrayDeque 사용으로 성능 최적화
+        Queue<Integer> queue = new ArrayDeque<>();
 
-        for (int i = 0; i < adj.length; i++) {
+        for (int i = 1; i < adj.length; i++) {
             if (indegree[i] == 0) queue.add(i);
         }
 
         while (!queue.isEmpty()) {
             int cur = queue.poll();
-            sb.append(cur+1).append(" ");
             for (int next : adj[cur]) {
                 indegree[next]--;
                 if (indegree[next] == 0) queue.add(next);
