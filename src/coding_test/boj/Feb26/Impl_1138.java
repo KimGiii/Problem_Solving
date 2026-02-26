@@ -4,34 +4,28 @@ import java.io.*;
 import java.util.*;
 
 public class Impl_1138 {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static StringTokenizer st;
-    static StringBuilder sb = new StringBuilder();
-
     public static void main(String[] args) throws IOException {
-        int N = Integer.parseInt(br.readLine());
-        int[] result = new int[N];
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        int n = Integer.parseInt(br.readLine());
+        int[] input = new int[n + 1];
 
-        st = new StringTokenizer(br.readLine());
-
-        for (int i = 1; i <= N; i++) {
-            int leftCount = Integer.parseInt(st.nextToken());
-
-            int count = 0;
-            for (int j = 0; j < N; j++) {
-                if (result[j] == 0) {
-                    if (count == leftCount) {
-                        result[j] = i;
-                        break;
-                    }
-                    count++;
-                }
-            }
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 1; i <= n; i++) {
+            input[i] = Integer.parseInt(st.nextToken());
         }
 
-        for (int i = 0; i < N; i++) {
-            sb.append(result[i]).append(i == N - 1 ? "" : " ");
+        // 키가 큰 사람부터 역순으로 리스트에 삽입
+        // 리스트의 인덱스가 곧 "자신의 왼쪽에 있는 나보다 큰 사람의 수"가 됨
+        List<Integer> result = new ArrayList<>();
+        for (int i = n; i >= 1; i--) {
+            result.add(input[i], i);
         }
-        System.out.println(sb);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            sb.append(result.get(i)).append(" ");
+        }
+        System.out.println(sb.toString().trim());
     }
 }
