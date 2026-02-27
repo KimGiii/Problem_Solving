@@ -25,36 +25,32 @@ public class DataStructure_20920 {
             }
         }
 
-        createWordNote(wordCountMap, wordLength);
+        createWordNote(wordCountMap);
 
     }
 
-    private static void createWordNote(Map<String, Integer> dictionary, int wordLength) {
-        List<Map.Entry<String, Integer>> wordList = new LinkedList<>(dictionary.entrySet());
-        wordList.sort((o1, o2) -> {
-            int frequency1 = o1.getValue();
-            int frequency2 = o2.getValue();
+    private static void createWordNote(Map<String, Integer> dictionary) {
+        List<String> wordList = new ArrayList<>(dictionary.keySet());
+        wordList.sort((w1, w2) -> {
+            int frequency1 = dictionary.get(w1);
+            int frequency2 = dictionary.get(w2);
 
             if (frequency1 != frequency2) {
                 return frequency2 - frequency1;
             }
 
-            int length1 = o1.getKey().length();
-            int length2 = o2.getKey().length();
-
-            if (length1 != length2) {
-                return length2 - length1;
+            if (w1.length() != w2.length()) {
+                return w2.length() - w1.length();
             }
 
-            return o1.getKey().compareTo(o2.getKey());
+            return w1.compareTo(w2);
         });
 
-        List<Map.Entry<String, Integer>> result = new ArrayList<>(wordList);
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, Integer> entry : result) {
-            sb.append(entry.getKey()).append('\n');
+        for (String word : wordList) {
+            sb.append(word).append('\n');
         }
 
-        System.out.print(sb.toString().trim());
+        System.out.print(sb);
     }
 }
