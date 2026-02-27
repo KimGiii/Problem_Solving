@@ -1,4 +1,4 @@
-package coding_test.boj.Feb26;
+package coding_test.boj.feb26;
 
 import java.io.*;
 import java.util.*;
