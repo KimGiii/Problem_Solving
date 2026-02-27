@@ -1,7 +1,11 @@
 package coding_test.boj.february.feb28;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+import static java.lang.Integer.parseInt;
 
 /*
  * 백준 2512 - 예산
@@ -14,19 +18,19 @@ public class BinarySearch_2512 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         // 1. 입력 처리
-        int n = Integer.parseInt(br.readLine());
+        int n = parseInt(br.readLine());
         int[] budgets = new int[n];
 
         long totalRequest = 0;
         int maxBudget = 0;
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            budgets[i] = Integer.parseInt(st.nextToken());
+            budgets[i] = parseInt(st.nextToken());
             totalRequest += budgets[i];
             maxBudget = Math.max(maxBudget, budgets[i]);
         }
 
-        int m = Integer.parseInt(br.readLine());
+        int m = parseInt(br.readLine());
 
         // 2. 예외 처리: 모든 요청을 들어줄 수 있는 경우
         if (totalRequest <= m) {
@@ -35,6 +39,12 @@ public class BinarySearch_2512 {
         }
 
         // 3. 이분 탐색 (상한액 찾기)
+        int answer = calculateOptimalBudget(maxBudget, budgets, m);
+
+        System.out.println(answer);
+    }
+
+    private static int calculateOptimalBudget(int maxBudget, int[] budgets, int m) {
         int low = 0;
         int high = maxBudget;
         int answer = 0;
@@ -45,8 +55,7 @@ public class BinarySearch_2512 {
 
             // 정해진 상한액(mid)으로 예산 배정 시 총합 계산
             for (int b : budgets) {
-                if (b > mid) currentSum += mid;
-                else currentSum += b;
+                currentSum += Math.min(b, mid);
             }
 
             if (currentSum <= m) {
@@ -58,7 +67,6 @@ public class BinarySearch_2512 {
                 high = mid - 1;
             }
         }
-
-        System.out.println(answer);
+        return answer;
     }
 }
