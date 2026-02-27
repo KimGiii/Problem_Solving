@@ -1,10 +1,9 @@
-package coding_test.boj.dec14;
+package coding_test.boj.previous.dec14;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-import java.util.logging.Logger;
 
 import static java.lang.Integer.parseInt;
 

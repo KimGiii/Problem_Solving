@@ -1,4 +1,4 @@
-package coding_test.boj.feb10;
+package coding_test.boj.february.feb10;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

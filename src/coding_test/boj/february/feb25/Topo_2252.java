@@ -1,4 +1,4 @@
-package coding_test.boj.feb25;
+package coding_test.boj.february.feb25;
 
 import java.io.BufferedReader;
 import java.io.IOException;

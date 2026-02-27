@@ -1,4 +1,4 @@
-package coding_test.boj.dec15;
+package coding_test.boj.previous.dec15;
 
 import java.io.BufferedReader;
 import java.io.IOException;
