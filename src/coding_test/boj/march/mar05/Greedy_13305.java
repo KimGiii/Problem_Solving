@@ -3,6 +3,12 @@ package coding_test.boj.march.mar05;
 import java.util.*;
 import java.io.*;
 
+/*
+* 백준 13305 : 주유소
+*
+* 알고리즘 : Greedy
+ */
+
 public class Greedy_13305 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
