@@ -1,7 +1,6 @@
 package coding_test.boj.march.mar08;
 
 import java.io.*;
-import java.util.*;
 
 /*
 * 백준 2562 : 최댓값
@@ -9,7 +8,7 @@ import java.util.*;
 * 알고리즘 : 구현
  */
 
-public class BOJ_2562 {
+public class Impl_2562 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
