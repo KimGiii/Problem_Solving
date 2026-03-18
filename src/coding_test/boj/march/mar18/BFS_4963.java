@@ -13,7 +13,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Graph_4963 {
+public class BFS_4963 {
     static int[][] map;
     static boolean[][] visited;
     static int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
