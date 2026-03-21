@@ -5,8 +5,8 @@ import java.util.List;
 
 public class PermutationBitmask {
 
-    private static char[] elements; // 순열을 만들 요소들
-    private static List<String> result; // 생성된 모든 순열을 저장할 리스트
+    static char[] elements; // 순열을 만들 요소들
+    static List<String> result; // 생성된 모든 순열을 저장할 리스트
 
     /**
      * @param mask                 현재까지 사용한 요소들의 상태를 나타내는 비트마스크 정수
