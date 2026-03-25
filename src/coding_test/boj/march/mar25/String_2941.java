@@ -1,5 +1,11 @@
 package coding_test.boj.march.mar25;
 
+/*
+* 백준 2941 : 크로아티아 알파벳
+*
+* 알고리즘 : String
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
