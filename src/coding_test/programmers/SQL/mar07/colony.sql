@@ -1,0 +1,18 @@
+SELECT
+    YEAR(differentiation_date) AS YEAR,
+    MAX(size_of_colony) OVER (PARTITION BY YEAR(differentiation_date)) - size_of_colony AS YEAR_DEV,
+    id
+FROM ECOLI_DATA
+ORDER BY YEAR ASC, YEAR_DEV ASC;
+
+-- 서브쿼리로 동일하게 구현하면
+SELECT
+    YEAR(e.DIFFERENTIATION_DATE) AS YEAR,
+    m.max_size - e.SIZE_OF_COLONY AS YEAR_DEV,
+    e.ID
+FROM ECOLI_DATA e
+    JOIN (
+    SELECT YEAR(DIFFERENTIATION_DATE) AS y, MAX(SIZE_OF_COLONY) AS max_size
+    FROM ECOLI_DATA
+    GROUP BY YEAR(DIFFERENTIATION_DATE)
+    ) m ON YEAR(e.DIFFERENTIATION_DATE) = m.y
